@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salão Elegance | Curitiba</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="font-heading" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link id="font-body" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Painel de Edição (No-Code Builder) -->
+    <button id="toggle-editor" class="editor-btn">
+        <i data-lucide="settings"></i> Personalizar Site
+    </button>
+
+    <aside id="editor-panel" class="editor-panel">
+        <div class="editor-header">
+            <h2>Construtor No-Code</h2>
+            <button id="close-editor"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div class="editor-content">
+            <div class="editor-section">
+                <h3><i data-lucide="palette"></i> Cores</h3>
+                <div class="input-group">
+                    <label for="color-primary">Cor Principal</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="color-primary" value="#d4af37">
+                        <span class="color-hex" id="hex-primary">#d4af37</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="color-text">Cor do Texto</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="color-text" value="#333333">
+                        <span class="color-hex" id="hex-text">#333333</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="color-bg">Cor de Fundo</label>
+                    <div class="color-picker-wrapper">
+                        <input type="color" id="color-bg" value="#ffffff">
+                        <span class="color-hex" id="hex-bg">#ffffff</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editor-section">
+                <h3><i data-lucide="type"></i> Tipografia</h3>
+                <div class="input-group">
+                    <label for="font-title-select">Fonte dos Títulos</label>
+                    <select id="font-title-select">
+                        <option value="Playfair Display">Playfair Display (Elegante)</option>
+                        <option value="Montserrat">Montserrat (Moderna)</option>
+                        <option value="Cormorant Garamond">Cormorant Garamond (Clássica)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="editor-section">
+                <h3><i data-lucide="align-left"></i> Textos Principais</h3>
+                <div class="input-group">
+                    <label for="edit-salon-name">Nome do Salão</label>
+                    <input type="text" id="edit-salon-name" value="Salão Elegance">
+                </div>
+                <div class="input-group">
+                    <label for="edit-salon-slogan">Slogan</label>
+                    <input type="text" id="edit-salon-slogan" value="Realçando a sua beleza natural no coração de Curitiba.">
+                </div>
+                <div class="input-group">
+                    <label for="edit-whatsapp">WhatsApp (apenas números)</label>
+                    <input type="text" id="edit-whatsapp" value="5541999999999">
+                </div>
+            </div>
+
+            <div class="editor-section">
+                <h3><i data-lucide="map-pin"></i> Localização (Google Maps)</h3>
+                <div class="input-group">
+                    <label for="edit-address">Endereço Completo</label>
+                    <textarea id="edit-address" rows="3">Rua XV de Novembro, 1000 - Centro, Curitiba - PR</textarea>
+                    <small>O mapa será atualizado automaticamente.</small>
+                </div>
+            </div>
+            
+            <button id="save-changes" class="save-btn">
+                <i data-lucide="save"></i> Salvar Alterações
+            </button>
+            <button id="reset-changes" class="reset-btn">
+                <i data-lucide="rotate-ccw"></i> Restaurar Padrão
+            </button>
+        </div>
+    </aside>
+
+    <!-- Site do Salão (Visualização Pública) -->
+    <main class="salon-site">
+        <!-- Navegação -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo dynamic-text" data-key="salonName">Salão Elegance</h1>
+                <div class="nav-links">
+                    <a href="#servicos">Serviços</a>
+                    <a href="#galeria">Galeria</a>
+                    <a href="#contato">Contato</a>
+                    <a href="#" class="btn-primary whatsapp-link" target="_blank">Agendar Horário</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h2 class="dynamic-text" data-key="salonName">Salão Elegance</h2>
+                <p class="subtitle dynamic-text" data-key="salonSlogan">Realçando a sua beleza natural no coração de Curitiba.</p>
+                <a href="#" class="btn-primary btn-large whatsapp-link" target="_blank">
+                    <i data-lucide="calendar"></i> Agende seu Horário
+                </a>
+            </div>
+        </header>
+
+        <!-- Serviços -->
+        <section id="servicos" class="services section">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="assets/corte.png" alt="Corte e Coloração" class="service-img">
+                        <div class="service-info">
+                            <h3>Corte & Coloração</h3>
+                            <p>Transforme seu visual com nossos especialistas em visagismo e colorimetria avançada.</p>
+                            <span class="price">A partir de R$ 120</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="assets/unhas.png" alt="Manicure e Pedicure" class="service-img">
+                        <div class="service-info">
+                            <h3>Nail Design</h3>
+                            <p>Manicure clássica, alongamento em gel, fibra de vidro e nail art exclusiva.</p>
+                            <span class="price">A partir de R$ 45</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="assets/maquiagem.png" alt="Maquiagem Profissional" class="service-img">
+                        <div class="service-info">
+                            <h3>Maquiagem</h3>
+                            <p>Maquiagem social, para noivas e eventos. Produtos de alta duração e acabamento impecável.</p>
+                            <span class="price">A partir de R$ 150</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Localização com Google Maps Embed API -->
+        <section id="contato" class="location section">
+            <div class="container">
+                <h2 class="section-title">Onde Estamos</h2>
+                <div class="location-wrapper">
+                    <div class="location-info">
+                        <h3>Visite nosso espaço</h3>
+                        <div class="info-item">
+                            <i data-lucide="map-pin"></i>
+                            <p class="dynamic-text" data-key="address">Rua XV de Novembro, 1000 - Centro, Curitiba - PR</p>
+                        </div>
+                        <div class="info-item">
+                            <i data-lucide="clock"></i>
+                            <p>Terça a Sábado: 09:00 às 19:00</p>
+                        </div>
+                        <div class="info-item">
+                            <i data-lucide="phone"></i>
+                            <p>(41) 99999-9999</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            id="google-map"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <h3 class="dynamic-text" data-key="salonName">Salão Elegance</h3>
+                        <p class="dynamic-text" data-key="salonSlogan">Sua beleza em primeiro lugar.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 <span class="dynamic-text" data-key="salonName">Salão Elegance</span>. Feito para o trabalho de Padrões Web.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
