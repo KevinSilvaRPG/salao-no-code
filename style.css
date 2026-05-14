@@ -2,28 +2,26 @@
    VARIÁVEIS GLOBAIS (CSS Custom Properties)
    ========================================= */
    :root {
-    /* Cores padrão (serão alteradas pelo JS) */
-    --primary-color: #d4af37; /* Dourado */
+    --primary-color: #d4af37;
     --primary-light: #f5eedc;
     --text-color: #333333;
     --bg-color: #ffffff;
     --bg-alt: #f8f9fa;
     --border-color: #e5e7eb;
     
-    /* Tipografia padrão */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Lato', sans-serif;
     
-    /* Outros padrões */
     --radius: 8px;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease;
 }
 
-/* =========================================
-   RESET E BASE
-   ========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -85,7 +83,14 @@ img {
     background-color: var(--primary-color);
 }
 
-/* Botões */
+.section-title.left-align {
+    text-align: left;
+}
+.section-title.left-align::after {
+    left: 0;
+    transform: none;
+}
+
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -171,10 +176,6 @@ img {
     padding: 0 20px;
 }
 
-.hero-content {
-    max-width: 800px;
-}
-
 .hero h2 {
     color: white;
     font-size: 4rem;
@@ -188,9 +189,35 @@ img {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
+/* Sobre Nós */
+.about {
+    background-color: var(--bg-alt);
+}
+
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
 /* Serviços */
 .services {
-    background-color: var(--bg-alt);
+    background-color: var(--bg-color);
 }
 
 .services-grid {
@@ -200,7 +227,7 @@ img {
 }
 
 .service-card {
-    background-color: var(--bg-color);
+    background-color: var(--bg-alt);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -237,6 +264,68 @@ img {
     border-radius: 4px;
 }
 
+/* Galeria / Instagram Grid */
+.gallery {
+    background-color: var(--bg-alt);
+}
+
+.ig-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ig-icon {
+    color: #E1306C; /* Cor brand do IG */
+}
+
+.ig-handle:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    padding-bottom: 100%; /* Aspect ratio quadrado 1:1 */
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: var(--radius);
+    color: #888;
+    border: 2px dashed #ddd;
+}
+
 /* Localização */
 .location-wrapper {
     display: grid;
@@ -262,14 +351,9 @@ img {
 
 .info-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
     margin-bottom: 25px;
-}
-
-.info-item i {
-    flex-shrink: 0;
-    margin-top: 3px;
 }
 
 .map-container {
@@ -298,6 +382,15 @@ img {
     margin-bottom: 5px;
 }
 
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
 .footer-social {
     display: flex;
     gap: 15px;
@@ -312,7 +405,6 @@ img {
     border-radius: 50%;
     background-color: #333;
     color: white;
-    transition: var(--transition);
 }
 
 .footer-social a:hover {
@@ -345,14 +437,12 @@ img {
     cursor: pointer;
     z-index: 1000;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .editor-btn:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px);
     background-color: #000;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
 .editor-btn i {
@@ -360,14 +450,13 @@ img {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .editor-panel {
     position: fixed;
     top: 0;
-    right: -400px; /* Escondido por padrão */
+    right: -400px;
     width: 380px;
     height: 100vh;
     background-color: #ffffff;
@@ -375,7 +464,7 @@ img {
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: right 0.4s;
     border-left: 1px solid var(--border-color);
 }
 
@@ -395,7 +484,6 @@ img {
 .editor-header h2 {
     color: white;
     margin: 0;
-    font-family: var(--font-body);
     font-size: 1.2rem;
 }
 
@@ -406,12 +494,6 @@ img {
     cursor: pointer;
     display: flex;
     padding: 5px;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-#close-editor:hover {
-    background-color: rgba(255,255,255,0.1);
 }
 
 .editor-content {
@@ -427,7 +509,6 @@ img {
 }
 
 .editor-section h3 {
-    font-family: var(--font-body);
     font-size: 1.1rem;
     color: #111827;
     display: flex;
@@ -463,24 +544,28 @@ img {
     border-radius: 6px;
     font-family: inherit;
     font-size: 0.95rem;
-    transition: border-color 0.2s;
 }
 
-.input-group input[type="text"]:focus,
-.input-group select:focus,
-.input-group textarea:focus {
-    outline: none;
+.upload-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f3f4f6;
+    padding: 10px !important;
+    border: 1px dashed #9ca3af;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.upload-btn:hover {
+    background: #e5e7eb;
     border-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
-.input-group small {
-    display: block;
-    margin-top: 5px;
-    color: #6b7280;
-    font-size: 0.75rem;
-}
-
-/* Custom Color Picker */
 .color-picker-wrapper {
     display: flex;
     align-items: center;
@@ -493,6 +578,7 @@ img {
 
 .color-picker-wrapper input[type="color"] {
     -webkit-appearance: none;
+    appearance: none;
     border: none;
     width: 32px;
     height: 32px;
@@ -514,10 +600,8 @@ img {
 .color-hex {
     font-family: monospace;
     font-size: 0.9rem;
-    color: #4b5563;
 }
 
-/* Botões do Painel */
 .save-btn, .reset-btn {
     width: 100%;
     padding: 12px;
@@ -528,19 +612,14 @@ img {
     justify-content: center;
     gap: 8px;
     cursor: pointer;
-    transition: background 0.2s;
     font-size: 1rem;
+    border: none;
 }
 
 .save-btn {
     background-color: #10b981;
     color: white;
-    border: none;
     margin-bottom: 12px;
-}
-
-.save-btn:hover {
-    background-color: #059669;
 }
 
 .reset-btn {
@@ -549,18 +628,13 @@ img {
     border: 1px solid #fca5a5;
 }
 
-.reset-btn:hover {
-    background-color: #fef2f2;
-}
-
 /* =========================================
    RESPONSIVIDADE
    ========================================= */
 @media (max-width: 992px) {
-    .location-wrapper {
+    .location-wrapper, .about-wrapper {
         grid-template-columns: 1fr;
     }
-    
     .map-container {
         height: 300px;
     }
@@ -568,22 +642,15 @@ img {
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Em um projeto real, faríamos um menu hamburguer */
+        display: none;
     }
-    
     .hero h2 {
         font-size: 2.5rem;
     }
-    
-    .hero .subtitle {
-        font-size: 1.2rem;
-    }
-    
     .editor-panel {
         width: 100%;
         right: -100%;
     }
-    
     .footer-content {
         flex-direction: column;
         gap: 20px;

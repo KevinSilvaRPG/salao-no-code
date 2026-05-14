@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salão Elegance | Curitiba</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts (13 Fontes Elegantes) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link id="font-heading" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link id="font-body" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link id="font-heading" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet">
+    <link id="font-body" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Pré-carregamento das opções extras (escondido para otimizar, o navegador baixa quando o CSS solicitar) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Cinzel:wght@400;600&family=Dancing+Script:wght@400;600&family=Great+Vibes&family=Josefin+Sans:wght@400;600&family=Lora:wght@400;600&family=Marcellus&family=Parisienne&family=Prata&family=Raleway:wght@400;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Painel de Edição (No-Code Builder) -->
-    <button id="toggle-editor" class="editor-btn">
+    <!-- Painel de Edição (No-Code Builder) - Ficará oculto a menos que acesse com ?admin=true -->
+    <button id="toggle-editor" class="editor-btn" style="display: none;">
         <i data-lucide="settings"></i> Personalizar Site
     </button>
 
@@ -56,15 +60,25 @@
                 <div class="input-group">
                     <label for="font-title-select">Fonte dos Títulos</label>
                     <select id="font-title-select">
-                        <option value="Playfair Display">Playfair Display (Elegante)</option>
+                        <option value="Playfair Display">Playfair Display (Clássica)</option>
                         <option value="Montserrat">Montserrat (Moderna)</option>
-                        <option value="Cormorant Garamond">Cormorant Garamond (Clássica)</option>
+                        <option value="Cormorant Garamond">Cormorant Garamond (Elegante)</option>
+                        <option value="Cinzel">Cinzel (Luxo Antigo)</option>
+                        <option value="Dancing Script">Dancing Script (Cursiva Leve)</option>
+                        <option value="Great Vibes">Great Vibes (Cursiva Sofisticada)</option>
+                        <option value="Josefin Sans">Josefin Sans (Geométrica)</option>
+                        <option value="Lora">Lora (Serifada Suave)</option>
+                        <option value="Marcellus">Marcellus (Fina e Chic)</option>
+                        <option value="Parisienne">Parisienne (Romântica)</option>
+                        <option value="Prata">Prata (Moda e Beleza)</option>
+                        <option value="Raleway">Raleway (Minimalista)</option>
+                        <option value="Tenor Sans">Tenor Sans (Alta Costura)</option>
                     </select>
                 </div>
             </div>
 
             <div class="editor-section">
-                <h3><i data-lucide="align-left"></i> Textos Principais</h3>
+                <h3><i data-lucide="align-left"></i> Textos & Sobre Nós</h3>
                 <div class="input-group">
                     <label for="edit-salon-name">Nome do Salão</label>
                     <input type="text" id="edit-salon-name" value="Salão Elegance">
@@ -74,17 +88,50 @@
                     <input type="text" id="edit-salon-slogan" value="Realçando a sua beleza natural no coração de Curitiba.">
                 </div>
                 <div class="input-group">
-                    <label for="edit-whatsapp">WhatsApp (apenas números)</label>
-                    <input type="text" id="edit-whatsapp" value="5541999999999">
+                    <label for="edit-about-title">Título (Sobre Nós)</label>
+                    <input type="text" id="edit-about-title" value="Sobre a Nossa História">
+                </div>
+                <div class="input-group">
+                    <label for="edit-about-text">História / Descrição</label>
+                    <textarea id="edit-about-text" rows="4">Desde 2015, o Salão Elegance tem sido referência em Curitiba, trazendo as últimas tendências mundiais de beleza. Nossa equipe é formada por profissionais apaixonados por elevar a autoestima de cada cliente.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="upload-about-img" class="upload-btn"><i data-lucide="upload"></i> Trocar Foto da Equipe</label>
+                    <input type="file" id="upload-about-img" accept="image/*" style="display: none;">
                 </div>
             </div>
 
             <div class="editor-section">
-                <h3><i data-lucide="map-pin"></i> Localização (Google Maps)</h3>
+                <h3><i data-lucide="message-circle"></i> Contato & Redes</h3>
+                <div class="input-group">
+                    <label for="edit-whatsapp">WhatsApp (apenas números)</label>
+                    <input type="text" id="edit-whatsapp" value="5541999999999">
+                </div>
+                <div class="input-group">
+                    <label for="edit-whatsapp-msg">Mensagem Padrão do WhatsApp</label>
+                    <input type="text" id="edit-whatsapp-msg" value="Olá! Vi o site e gostaria de agendar um horário.">
+                </div>
+                <div class="input-group">
+                    <label for="edit-instagram">Arroba do Instagram</label>
+                    <input type="text" id="edit-instagram" value="salaoelegance">
+                </div>
                 <div class="input-group">
                     <label for="edit-address">Endereço Completo</label>
                     <textarea id="edit-address" rows="3">Rua XV de Novembro, 1000 - Centro, Curitiba - PR</textarea>
-                    <small>O mapa será atualizado automaticamente.</small>
+                </div>
+            </div>
+
+            <div class="editor-section">
+                <h3><i data-lucide="image"></i> Galeria de Trabalhos</h3>
+                <div class="input-group">
+                    <label>Adicionar nova foto à Galeria</label>
+                    <label for="upload-gallery-img" class="upload-btn"><i data-lucide="upload"></i> Escolher Foto</label>
+                    <input type="file" id="upload-gallery-img" accept="image/*" style="display: none;">
+                </div>
+                <div class="input-group">
+                    <button id="clear-gallery" class="reset-btn" style="margin-top: 10px; padding: 8px;">
+                        <i data-lucide="trash-2"></i> Limpar Galeria
+                    </button>
                 </div>
             </div>
             
@@ -104,6 +151,8 @@
             <div class="nav-container">
                 <h1 class="logo dynamic-text" data-key="salonName">Salão Elegance</h1>
                 <div class="nav-links">
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre Nós</a>
                     <a href="#servicos">Serviços</a>
                     <a href="#galeria">Galeria</a>
                     <a href="#contato">Contato</a>
@@ -113,7 +162,7 @@
         </nav>
 
         <!-- Hero Section -->
-        <header class="hero">
+        <header id="inicio" class="hero">
             <div class="hero-content">
                 <h2 class="dynamic-text" data-key="salonName">Salão Elegance</h2>
                 <p class="subtitle dynamic-text" data-key="salonSlogan">Realçando a sua beleza natural no coração de Curitiba.</p>
@@ -122,6 +171,24 @@
                 </a>
             </div>
         </header>
+
+        <!-- Sobre Nós -->
+        <section id="sobre" class="about section">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-image">
+                        <img src="assets/equipe.png" alt="Equipe do Salão" id="about-img-preview">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title left-align dynamic-text" data-key="aboutTitle">Sobre a Nossa História</h2>
+                        <p class="dynamic-text" data-key="aboutText">Desde 2015, o Salão Elegance tem sido referência em Curitiba, trazendo as últimas tendências mundiais de beleza. Nossa equipe é formada por profissionais apaixonados por elevar a autoestima de cada cliente.</p>
+                        <a href="#" class="btn-primary whatsapp-link" target="_blank" style="margin-top: 20px;">
+                            <i data-lucide="message-circle"></i> Fale com a Equipe
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Serviços -->
         <section id="servicos" class="services section">
@@ -156,7 +223,23 @@
             </div>
         </section>
 
-        <!-- Localização com Google Maps Embed API -->
+        <!-- Galeria (Estilo Instagram) -->
+        <section id="galeria" class="gallery section">
+            <div class="container">
+                <h2 class="section-title">Nosso Trabalho</h2>
+                <div class="ig-header">
+                    <i data-lucide="instagram" class="ig-icon"></i>
+                    <a href="https://instagram.com/salaoelegance" target="_blank" class="ig-handle dynamic-ig-link">
+                        @<span class="dynamic-text" data-key="instagram">salaoelegance</span>
+                    </a>
+                </div>
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- As imagens serão inseridas aqui via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Localização com Google Maps -->
         <section id="contato" class="location section">
             <div class="container">
                 <h2 class="section-title">Onde Estamos</h2>
@@ -174,6 +257,10 @@
                         <div class="info-item">
                             <i data-lucide="phone"></i>
                             <p>(41) 99999-9999</p>
+                        </div>
+                        <div class="info-item">
+                            <i data-lucide="instagram"></i>
+                            <a href="#" target="_blank" class="dynamic-ig-link">@<span class="dynamic-text" data-key="instagram">salaoelegance</span></a>
                         </div>
                     </div>
                     <div class="map-container">
@@ -200,9 +287,15 @@
                         <h3 class="dynamic-text" data-key="salonName">Salão Elegance</h3>
                         <p class="dynamic-text" data-key="salonSlogan">Sua beleza em primeiro lugar.</p>
                     </div>
+                    <div class="footer-links">
+                        <a href="#inicio">Início</a>
+                        <a href="#sobre">Sobre Nós</a>
+                        <a href="#servicos">Serviços</a>
+                        <a href="#galeria">Galeria</a>
+                    </div>
                     <div class="footer-social">
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#" target="_blank" class="dynamic-ig-link"><i data-lucide="instagram"></i></a>
+                        <a href="#" target="_blank" class="whatsapp-link"><i data-lucide="phone"></i></a>
                     </div>
                 </div>
                 <div class="footer-bottom">
@@ -214,7 +307,6 @@
 
     <!-- Scripts -->
     <script>
-        // Inicializa os ícones do Lucide
         lucide.createIcons();
     </script>
     <script src="app.js"></script>
